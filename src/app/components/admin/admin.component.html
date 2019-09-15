@@ -1,0 +1,49 @@
+
+ <button type="button"
+ class="button large js-btn-remove"
+ (click)="AddProduct()"
+ > Add Product</button>
+
+
+ <button type="button"
+ class="button small js-btn-remove"
+ (click)="SignOut()"
+ style="float:right"
+ >Sign Out</button>
+ 
+<div class="row">
+    <div class="small-12 medium-8 columns">
+      <h3>Pick your Favourite Phone...</h3>
+      <ul class="product-list">
+        <li *ngFor="let product of products"
+            class="product-container">
+            <div class="row">
+              <div class="medium-3 columns text-center">        
+              </div>
+              <div class="medium-9 columns">
+                <h4>
+                  <span class="text--bold js-product-name">{{product.name}}</span>
+                  <small class="product_price js-product-price">{{product.price | currency:'INR':true}}</small>
+                </h4>
+                <p class="js-product-desc">{{product.description}}</p>
+               <div class="js-product-desc">Available Quantity :{{product.quantity}}</div>
+               <br>
+                <p>
+                  <button type="button"
+                          class="button primary small js-btn-add"
+                          (click)="Edit(product.productId)"
+                          >Edit</button> &nbsp;&nbsp;
+                  <button type="button"
+                          class="button small js-btn-remove"
+                          (click)="Delete(product.productId)"
+                          > Delete </button>
+                </p>
+              </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+    <div class="small-12 medium-4 columns">      
+    </div>
+  </div>
+  

@@ -1,0 +1,18 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<br><br><br>
+<div class="col-md-6 col-md-offset-3">
+<form #EditProductForm = "ngForm" (ngSubmit) = "EditProduct(EditProductForm.value)">
+  <input type = "number"  class = "form-control" name = "ProductId" placeholder = "Product_Id" [(ngModel)]="product.productId">
+  <br/>
+  <input type = "text" class="form-control"  name = "Name" placeholder = "Product Name" [(ngModel)]="product.name">
+  <br/>
+  <input type = "number" class="form-control"  name = "Price" placeholder = "Price" [(ngModel)]="product.price">
+  <br/>
+  <input type = "text" class="form-control"  name = "Description" placeholder = "Description" [(ngModel)]="product.description">
+  <br/>
+  <input type = "number" class="form-control"  name = "Quantity" placeholder = "Quantity" [(ngModel)]="product.quantity">
+  <br/>
+  <input type = "submit" value = "Edit" class="btn btn-primary">&nbsp; &nbsp;
+</form>
+</div> 
+

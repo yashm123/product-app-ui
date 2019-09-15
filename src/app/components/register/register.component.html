@@ -1,0 +1,21 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<br><br><br>
+<div class="col-md-6 col-md-offset-3">
+<form #Registration = "ngForm" (ngSubmit) = "Register(Registration.value)" >
+  <input type = "text" class = "form-control" name = "Email_ID"  placeholder = "emailid" ngModel >
+  <br/>
+  <input type = "password" class="form-control"  name = "Password" placeholder = "passwd" ngModel >
+  <br/>
+  <input type = "text" class="form-control"  name = "Name" placeholder = "Name" ngModel >
+  <br/>
+  <input type = "text" class="form-control"  name = "City" placeholder = "City" ngModel >
+  <br/>
+  <input type = "number" class="form-control"  name = "Mobile_No" placeholder = "Mobile Number" ngModel >
+  <br/>
+  Gender:&nbsp;&nbsp;<input type="radio" name="Gender" value="Male" ngModel>Male &nbsp;&nbsp;&nbsp; <input type="radio" name="Gender" value="Female" ngModel >Female
+  <br><br>
+  <input type = "submit" value = "Register" class="btn btn-primary">&nbsp; &nbsp;
+</form>
+</div>
+
+<p class="text-danger">{{userexists}}</p>

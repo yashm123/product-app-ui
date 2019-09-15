@@ -1,0 +1,117 @@
+<!--
+<div class="row">
+  <div class="small-12 medium-8 columns">
+    <h3>Pick Your Favourate Phone</h3>
+    <ul >
+      <li *ngFor="let product of products">
+          {{product.Name}} || {{product.Description}} || {{product.Price}}
+      </li>
+    </ul>
+  </div>
+  <div class="small-12 medium-4 columns">
+    <!app-shopping-cart></app-shopping-cart>
+  </div>
+</div>
+-->
+
+    <button type="button"
+    class="button small js-btn-remove"
+    (click)="SignOut()"
+    style="float:right"
+    >Sign Out</button>
+
+<div class="row">
+  {{this.EmailID}}
+  <div class="small-12 medium-8 columns">
+    <h3>Pick your Favourite Phone...</h3>
+    <ul class="product-list">
+      <li *ngFor="let product of products"
+          class="product-container">
+          <div class="row">
+            <div class="medium-3 columns text-center">
+              
+            </div>
+            <div class="medium-9 columns">
+              <h4>
+                <span class="text--bold js-product-name">{{product.name}}</span>
+                <small class="product_price js-product-price">{{product.price | currency:'INR':true}}</small>
+               
+              </h4>
+              <p class="js-product-desc">{{product.Description}}
+                  <span style="float:right" *ngIf='product.AddedToCart'>Item in Cart : {{product.QtyInCart}}</span> 
+
+              </p>
+
+              <div class="js-product-desc">{{product.quantity}}</div>
+              <p>
+              <input type="number" style="width:100px" name="QtyToBeAdded" min="1"[(ngModel)] = "product.QtyTobeAdded">
+              <span *ngIf='product.ErrorMsgDisplay'>
+                  <h5>{{product.ErrorMsg}} </h5>
+              </span>
+                <button type="button"
+                        class="button success small js-btn-add"
+                        (click)="addProductToCart(product)"
+                        >Add To Cart</button> &nbsp;&nbsp;
+                <span *ngIf='product.AddedToCart'>
+                        <button type="button"
+                        class="button small js-btn-remove"
+                        (click)="RemoveProductFromCart(product)"
+                        >Remove item from cart</button></span>
+              </p>
+             
+            </div>
+           
+          </div>
+      </li>
+    </ul>
+  </div>
+  <div class="small-12 medium-4 columns">
+      <!--app-shopping-cart [totalItems]= "totalItems" 
+      [totalBill]="totalBill"
+      ></app-shopping-cart-->
+      <div class="row">
+          <div class="small-12 columns">
+            <h3>
+              <i class="material-icons">shopping_basket</i>
+              Your Shopping Basket
+            </h3>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="small-12 columns">
+            <h5>
+              Sub Total ({{totalItems}} items):
+              <span class="text--red text--bold js-cart-total">{{ totalBill | currency:'INR':true}}</span>
+            </h5>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="small-12 columns">
+            <a class="success button large expanded"
+               [attr.disabled]="totalItems === 0 ? true : null"
+               (click)="checkout()">Proceed To Checkout</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns text-center">
+            or
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns">
+            <button type="button"
+                    class="secondary button small expanded js-btn-empty-cart"
+                    (click)="emptyCart()"
+                    [attr.disabled]="totalItems === 0 ? true : null">
+              Empty shopping basket
+            </button>
+          </div>
+        </div>
+        
+  </div>
+</div>
+
+
+

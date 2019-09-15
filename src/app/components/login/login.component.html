@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!--
+<div class="col-md-6 col-md-offset-3">
+  <h2>Login</h2>
+  <form name="form"  (ngSubmit)="f.form.valid && hello(f.form.value)" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !emailid.valid }">
+          <label for="emailid">Email Id</label>
+          <input type="text" class="form-control" name="emailid" [(ngModel)]="emailid" #emailid="ngModel" required />
+          <div *ngIf="f.submitted && !emailid.valid" class="help-block">Email Id is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="password" #password="ngModel" required />
+          <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary">Login</button>
+          <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+      </div>
+  </form>
+</div>
+-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
+<br><br><br>
+<div class="col-md-6 col-md-offset-3">
+<form #userlogin = "ngForm" (ngSubmit) = "login(userlogin.value)" >
+  <input type = "text" class = "form-control" name = "Email_ID" placeholder = "emailid" ngModel required>
+  <br/>
+  <input type = "password" class="form-control"  name = "Password" placeholder = "passwd" ngModel required>
+  <br/>
+  <input type = "submit" value = "submit" class="btn btn-primary">&nbsp; &nbsp;
+  <button (click)="Register()" class="btn btn-primary">Register</button>
+</form>
+</div>
+&nbsp;{{InvalidUser}}
